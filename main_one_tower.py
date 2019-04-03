@@ -121,7 +121,7 @@ save_weights_every_steps = int(max_steps/10)
 """ 
 Hardware 
 """
-gpu = '1'
+gpu = '0'
 os.environ["CUDA_VISIBLE_DEVICES"] = gpu
 """ otherwise tensorflow allocates all the gpus """
 
@@ -199,7 +199,8 @@ if train:
     print(one_tower)
     one_tower.train(margin, type_loss, type_mining, ds_train, learning_rate, max_steps,
           P, K, keep_prob_fc, show_loss_every_steps, save_weights_every_steps)
-    print('path experiment {}'.format(one_tower.path_experiment))     
+    print('path experiment {}'.format(one_tower.path_experiment))
+    path_experiment = one_tower.path_experiment
    
 if compute_and_plot_embedding:
     """ compute and save embeddings of the datasets.
